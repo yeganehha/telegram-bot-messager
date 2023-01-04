@@ -49,15 +49,19 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('setting') }}">{{ __('Setting') }}</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin') }}">{{ __('Admins') }}</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('register') }}">
-                                        Register New Admin
+                                    <a class="dropdown-item" href="{{ route('admin.edit', Auth::id()) }}">
+                                        Profile
                                     </a>
+                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

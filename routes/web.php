@@ -28,4 +28,7 @@ Route::group(['middleware' => 'auth'] , function()  {
     Route::get('/currencies', \App\Http\Livewire\Symbol\Symbols::class)->name('currency');
     Route::get('/currency/{id?}', \App\Http\Livewire\Symbol\Edit::class)->name('currency.edit');
 
+    Route::get('/admin', \App\Http\Livewire\Admin\Users::class)->name('admin');
+    Route::get('/admin/{id}', \App\Http\Livewire\Admin\Edit::class)->name('admin.edit');
+    
 });
