@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/', '/home');
 
 Auth::routes();
-Route::post('register' , [App\Http\Controllers\Auth\RegisterController::class , 'register' ])->middleware('auth');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'auth'] , function()  {
+    Route::post('register' , [App\Http\Controllers\Auth\RegisterController::class , 'register' ]);
+
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::get('/setting', \App\Http\Livewire\SettingForm::class)->name('setting');
+});
