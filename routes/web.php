@@ -24,4 +24,8 @@ Route::group(['middleware' => 'auth'] , function()  {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::get('/setting', \App\Http\Livewire\SettingForm::class)->name('setting');
+
+    Route::get('/currencies', \App\Http\Livewire\Symbol\Symbols::class)->name('currency');
+    Route::get('/currency/{id?}', \App\Http\Livewire\Symbol\Edit::class)->name('currency.edit');
+
 });
