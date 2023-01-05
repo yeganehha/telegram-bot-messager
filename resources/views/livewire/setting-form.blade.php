@@ -44,15 +44,39 @@
                     </span>
                 @enderror
             </div>
-            <div class="text-secondary small">Use `Windows button + dot` for open emoji on windows</div>
-
         </div>
         <div class="col-md-6 row mb-3">
-            <label for="sell_label" class="col-md-4 col-form-label">Sell label:</label>
+            <label for="sell_label" class="col-md-4 col-form-label">Sell Position label:</label>
 
             <div class="col-md-6">
                 <input id="sell_label" type="text" class="form-control @error('sell_label') is-invalid @enderror" wire:model.lazy="sell_label"  value="{{ $sell_label }}" autocomplete="off" autofocus>
                 @error('sell_label')
+                <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        <div class="col-md-6 row mb-3">
+            <label for="buy_icon" class="col-md-4 col-form-label">Buy Position Icon:</label>
+
+            <div class="col-md-6">
+                <input id="buy_icon" type="text" class="form-control @error('buy_icon') is-invalid @enderror" wire:model.lazy="buy_icon"  value="{{ $buy_icon }}" autocomplete="off" autofocus>
+                @error('buy_icon')
+                <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="text-secondary small">Use `Windows button + dot` for open emoji on windows</div>
+
+        </div>
+        <div class="col-md-6 row mb-3">
+            <label for="sell_icon" class="col-md-4 col-form-label">Sell Position Icon:</label>
+
+            <div class="col-md-6">
+                <input id="sell_icon" type="text" class="form-control @error('sell_icon') is-invalid @enderror" wire:model.lazy="sell_icon"  value="{{ $sell_icon }}" autocomplete="off" autofocus>
+                @error('sell_icon')
                 <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -67,19 +91,23 @@
             <div class="col-md-10">
                 <textarea id="message_text" rows="6" class="form-control @error('message_text') is-invalid @enderror" wire:model.lazy="message_text" autocomplete="off" autofocus>{{ $message_text }}</textarea>
                 <div class="text-secondary small">
-                    Use This Variable:
-                    <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('SYMBOL')">[[SYMBOL]]</span>
-                    <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('POSITION')">[[POSITION]]</span>
-                    <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('TARGET')">[[TARGET]]</span>
-                    <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('TP1')">[[TP1]]</span>
-                    <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('TP2')">[[TP2]]</span>
-                    <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('TP3')">[[TP3]]</span>
-                    <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('STOP')">[[STOP]]</span>
-                    <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('DESCRIPTION')">[[DESCRIPTION]]</span>
-                </div>
-                <div class="text-secondary small">
                     Use `Windows button + dot` for open emoji on windows
                 </div>
+                <div class="text-secondary small">
+                    Use This Variable:
+                </div>
+                <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('CURRENCY_ICON')">[[CURRENCY_ICON]]</span>
+                <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('CURRENCY_TITLE')">[[CURRENCY_TITLE]]</span>
+                <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('CURRENCY_SYMBOL')">[[CURRENCY_SYMBOL]]</span>
+                <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('POSITION_LABEL')">[[POSITION_LABEL]]</span>
+                <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('POSITION_ICON')">[[POSITION_ICON]]</span>
+                <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('ENTRY')">[[ENTRY]]</span>
+                <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('TARGET')">[[TARGET]]</span>
+                <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('TP1')">[[TP1]]</span>
+                <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('TP2')">[[TP2]]</span>
+                <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('TP3')">[[TP3]]</span>
+                <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('STOP')">[[STOP]]</span>
+                <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('DESCRIPTION')">[[DESCRIPTION]]</span>
                 @error('message_text')
                 <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

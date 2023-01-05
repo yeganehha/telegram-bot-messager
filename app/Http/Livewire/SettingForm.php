@@ -14,6 +14,8 @@ class SettingForm extends Component
     public $channel_id;
     public $buy_label;
     public $sell_label;
+    public $buy_icon;
+    public $sell_icon;
 
     public $rules = [
         'token' => ['required' , 'string'],
@@ -21,6 +23,8 @@ class SettingForm extends Component
         'message_text' => ['required' , 'string'],
         'buy_label' => ['nullable' , 'string'],
         'sell_label' => ['nullable' , 'string'],
+        'buy_icon' => ['nullable' , 'string'],
+        'sell_icon' => ['nullable' , 'string'],
     ];
 
     public function updated($peroperty , $value )
@@ -39,6 +43,8 @@ class SettingForm extends Component
             'message' => $this->message_text ,
             'buy_label' => $this->buy_label ,
             'sell_label' => $this->sell_label ,
+            'buy_icon' => $this->buy_icon ,
+            'sell_icon' => $this->sell_icon ,
             ]);
         $this->flash_message = "Saved successfully.";
     }
@@ -54,8 +60,10 @@ class SettingForm extends Component
         $this->token = Settings::get('token');
         $this->channel_id = Settings::get('channel_id');
         $this->message_text = Settings::get('message');
-        $this->buy_label = Settings::get('buy_label' , '🟢');
-        $this->sell_label = Settings::get('sell_label' , '🔴');
+        $this->buy_label = Settings::get('buy_label' , 'Buy');
+        $this->sell_label = Settings::get('sell_label' , 'Sell');
+        $this->buy_icon = Settings::get('buy_icon' , '🟢');
+        $this->sell_icon = Settings::get('sell_icon' , '🔴');
     }
     public function render()
     {
