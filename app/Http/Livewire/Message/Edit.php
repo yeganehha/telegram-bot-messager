@@ -8,6 +8,12 @@ use HackerESQ\Settings\Facades\Settings;
 use Illuminate\Support\Facades\Blade;
 use Livewire\Component;
 
+use React\EventLoop\Factory;
+use unreal4u\TelegramAPI\HttpClientRequestHandler;
+use unreal4u\TelegramAPI\Telegram\Methods\EditMessageText;
+use unreal4u\TelegramAPI\Telegram\Methods\SendMessage;
+use unreal4u\TelegramAPI\TgLog;
+
 class Edit extends Component
 {
     public $Symbol;
@@ -33,9 +39,11 @@ class Edit extends Component
         $this->messageText();
     }
 
-    private function messageText() {
-        $this->messageText = Blade::render(
-            nl2br(str_replace( ['[[' , ']]'] , [ '{{$' , '}}'] , Settings::get('message')  )),
+    private function messageText( $isNL2Br = true) {
+        $text = str_replace( ['[[' , ']]'] , [ '{{$' , '}}'] , Settings::get('message')  ) ;
+        if ( $isNL2Br )
+            $text = nl2br($text);
+        $html =  Blade::render($text,
             [
                 'CURRENCY_ICON' => $this->Symbol->icon,
                 'CURRENCY_TITLE' => $this->Symbol->title,
@@ -51,6 +59,10 @@ class Edit extends Component
                 'DESCRIPTION' => $this->messageObject['description'],
             ]
         );
+        if ( $isNL2Br )
+            $this->messageText = $html ;
+        else
+            return $html;
     }
 
     public function save()
@@ -59,11 +71,34 @@ class Edit extends Component
         $this->messageText();
         $this->messageObject->message = $this->messageText;
         $this->messageObject->symbol_id = $this->Symbol->id;
+        $this->telegram();
         $this->messageObject->signature = Settings::get('message');
         $this->messageObject->save();
-        $this->flash_message = "Saved successfully.";
+        $this->flash_message = "Message send or edit in telegram successfully.";
     }
 
+    private function telegram()
+    {
+        $loop = Factory::create();
+        $tgLog = new TgLog(Settings::get('token'), new HttpClientRequestHandler($loop));
+        if ( $this->messageObject->telegram_id == null ) {
+            $message = new SendMessage();
+        } else {
+            $message = new EditMessageText();
+            $message->message_id = $this->messageObject->telegram_id ;
+        }
+        $message->chat_id = Settings::get('channel_id');
+        $message->text = $this->messageText(false);
+        $promise = $tgLog->performApiRequest($message);
+        $promise->then(
+            function ($response) {
+                $this->messageObject->telegram_id =  $response->message_id ;
+            },
+            function (\Exception $exception) {
+            }
+        );
+        $loop->run();
+    }
 
     public function mount(Symbol $symbol, Message $message)
     {

@@ -40,6 +40,7 @@ class SettingForm extends Component
         Settings::force()->set([
             'token' => $this->token ,
             'channel_id' => $this->channel_id ,
+            'channel_link' => 'https://t.me/c/'. str_replace('-100' , '' , $this->channel_id).'/'  ,
             'message' => $this->message_text ,
             'buy_label' => $this->buy_label ,
             'sell_label' => $this->sell_label ,
