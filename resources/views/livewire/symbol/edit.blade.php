@@ -34,6 +34,18 @@
                     </span>
                 @enderror
             </div>
+        </div>
+        <div class="col-md-6 row mb-3">
+            <label for="icon" class="col-md-4 col-form-label">icon:</label>
+
+            <div class="col-md-6">
+                <input id="icon" type="text" class="form-control @error('Symbol.icon') is-invalid @enderror" wire:model.lazy="Symbol.icon"  value="{{ $Symbol['icon'] }}" autocomplete="off" autofocus>
+                @error('Symbol.icon')
+                <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
             <div class="text-secondary small">Use `Windows button + dot` for open emoji on windows</div>
 
         </div>

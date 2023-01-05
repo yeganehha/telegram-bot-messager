@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('symbols', function (Blueprint $table) {
             $table->id();
+            $table->string('icon')->nullable();
             $table->string('symbol')->nullable();
             $table->string('title')->nullable();
             $table->timestamps();

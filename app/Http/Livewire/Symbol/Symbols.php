@@ -25,6 +25,9 @@ class Symbols extends DataTableComponent
             Column::make("Symbol", "symbol")
                 ->searchable()
                 ->sortable(),
+            Column::make("Icon", "icon")
+                ->searchable()
+                ->sortable(),
             ButtonGroupColumn::make('Actions')
                 ->attributes(function($row) {
                     return [

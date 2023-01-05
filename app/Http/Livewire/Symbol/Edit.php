@@ -13,6 +13,7 @@ class Edit extends Component
     public $rules = [
         'Symbol.title' => ['required' , 'string', 'max:255'],
         'Symbol.symbol' => ['nullable' , 'string', 'max:255'],
+        'Symbol.icon' => ['nullable' , 'string', 'max:255'],
     ];
 
     public function updated($peroperty , $value )
