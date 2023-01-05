@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'] , function()  {
 
     Route::get('/currency/{symbol}/messages', App\Http\Livewire\Message\Messages::class)->name('messages');
     Route::get('/currency/{symbol}/message/{message?}', App\Http\Livewire\Message\Edit::class)->name('message.create');
+    Route::get('/currency/{symbol}/message/{message}/delete', App\Http\Livewire\Message\Delete::class)->name('message.delete');
 
     Route::get('/admin', \App\Http\Livewire\Admin\Users::class)->name('admin');
     Route::get('/admin/{id}', \App\Http\Livewire\Admin\Edit::class)->name('admin.edit');

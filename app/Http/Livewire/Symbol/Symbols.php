@@ -36,7 +36,7 @@ class Symbols extends DataTableComponent
                 })
                 ->buttons([
                     LinkColumn::make('Edit')
-                        ->title(fn($row) => 'Edit' )
+                        ->title(fn($row) => '✏ Edit' )
                         ->location(fn($row) => route('currency.edit', $row))
                         ->attributes(function($row) {
                             return [
@@ -44,7 +44,7 @@ class Symbols extends DataTableComponent
                             ];
                         }),
                     LinkColumn::make('List Messages')
-                        ->title(fn($row) => 'Messages' )
+                        ->title(fn($row) => '📃 Messages' )
                         ->location(fn($row) => route('messages', $row))
                         ->attributes(function($row) {
                             return [
@@ -52,7 +52,7 @@ class Symbols extends DataTableComponent
                             ];
                         }),
                     LinkColumn::make('Send new message')
-                        ->title(fn($row) => 'Send New' )
+                        ->title(fn($row) => '🗨️ Send New' )
                         ->location(fn($row) => route('message.create', $row))
                         ->attributes(function($row) {
                             return [

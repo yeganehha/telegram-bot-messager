@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Message;
 
 use App\Http\Livewire\DataTableComponent;
 use App\Models\Symbol;
+use HackerESQ\Settings\Facades\Settings;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Message;
@@ -35,6 +36,8 @@ class Messages extends DataTableComponent
         return [
             Column::make("Id", "id")
                 ->hideIf(true),
+            Column::make("telegram_id", "telegram_id")
+                ->hideIf(true),
             Column::make("Symbol id", "symbol_id")
                 ->hideIf(true),
             Column::make("Position", "position")
@@ -60,14 +63,30 @@ class Messages extends DataTableComponent
                 })
                 ->buttons([
                     LinkColumn::make('Edit Message')
-                        ->title(fn($row) => 'Edit Message' )
-                        ->location(fn($row) => route('message.create', [$this->symbol ,  $row]))
+                        ->title(fn($row) => '✏ Edit Message' )
+                        ->location(fn($row) =>  route('message.create', [$this->symbol ,  $row]))
                         ->attributes(function($row) {
                             return [
                                 'class' => 'btn btn-outline-warning',
                             ];
                         }),
-                    ])
+                        LinkColumn::make('On telegram')
+                            ->title(fn($row) => '👁️‍🗨️ On telegram' )
+                            ->location(fn($row) => Settings::get('channel_link') .$row->telegram_id)
+                            ->attributes(function($row) {
+                                return [
+                                    'class' => 'btn btn-outline-info',
+                                ];
+                            }),
+                        LinkColumn::make('delete Message')
+                            ->title(fn($row) => '🗑️ Delete' )
+                            ->location(fn($row) => route('message.delete', [$this->symbol ,  $row]) )
+                            ->attributes(function($row) {
+                                return [
+                                    'class' => 'btn btn-outline-danger',
+                                ];
+                            }),
+                    ]),
         ];
     }
 }
