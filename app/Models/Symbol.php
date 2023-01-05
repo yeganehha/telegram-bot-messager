@@ -11,4 +11,9 @@ class Symbol extends Model
         'symbol' ,
         'title'
     ];
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }
