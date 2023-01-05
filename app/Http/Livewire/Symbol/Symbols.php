@@ -43,7 +43,7 @@ class Symbols extends DataTableComponent
                                 'class' => 'btn btn-outline-warning',
                             ];
                         }),
-                    LinkColumn::make('Edit')
+                    LinkColumn::make('List Messages')
                         ->title(fn($row) => 'Messages' )
                         ->location(fn($row) => route('messages', $row))
                         ->attributes(function($row) {
@@ -51,7 +51,7 @@ class Symbols extends DataTableComponent
                                 'class' => 'btn btn-outline-info',
                             ];
                         }),
-                    LinkColumn::make('Edit')
+                    LinkColumn::make('Send new message')
                         ->title(fn($row) => 'Send New' )
                         ->location(fn($row) => route('message.create', $row))
                         ->attributes(function($row) {

@@ -7,6 +7,8 @@ use App\Models\Symbol;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Message;
+use Rappasoft\LaravelLivewireTables\Views\Columns\ButtonGroupColumn;
+use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
 
 class Messages extends DataTableComponent
 {
@@ -49,6 +51,23 @@ class Messages extends DataTableComponent
                 ->sortable(),
             Column::make("Updated at", "updated_at")
                 ->sortable(),
+
+            ButtonGroupColumn::make('Actions')
+                ->attributes(function($row) {
+                    return [
+                        'class' => 'space-x-2',
+                    ];
+                })
+                ->buttons([
+                    LinkColumn::make('Edit Message')
+                        ->title(fn($row) => 'Edit Message' )
+                        ->location(fn($row) => route('message.create', [$this->symbol ,  $row]))
+                        ->attributes(function($row) {
+                            return [
+                                'class' => 'btn btn-outline-warning',
+                            ];
+                        }),
+                    ])
         ];
     }
 }

@@ -30,7 +30,7 @@ Route::group(['middleware' => 'auth'] , function()  {
     Route::get('/currency/{id?}', \App\Http\Livewire\Symbol\Edit::class)->name('currency.edit');
 
     Route::get('/currency/{symbol}/messages', App\Http\Livewire\Message\Messages::class)->name('messages');
-    Route::get('/currency/{symbol}/message/{id?}', App\Http\Livewire\Message\Messages::class)->name('message.create');
+    Route::get('/currency/{symbol}/message/{message?}', App\Http\Livewire\Message\Edit::class)->name('message.create');
 
     Route::get('/admin', \App\Http\Livewire\Admin\Users::class)->name('admin');
     Route::get('/admin/{id}', \App\Http\Livewire\Admin\Edit::class)->name('admin.edit');

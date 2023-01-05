@@ -11,6 +11,7 @@ class Message extends Model
     protected $fillable = [
         'symbol_id',
         'position',
+        'entry',
         'target',
         'tp1',
         'tp2',
