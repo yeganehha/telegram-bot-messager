@@ -14,7 +14,9 @@
 {{--    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">--}}
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+{{--    @vite(['resources/sass/app.scss', 'resources/js/app.js'])--}}
+    <link rel="stylesheet" href="{{ asset('build/assets/app-67dcdfd2.css') }}" />
+    <script type="module" src="{{ asset('build/assets/app-7757a2cf.js') }}"></script>
     @livewireStyles
 </head>
 <body>
