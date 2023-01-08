@@ -109,6 +109,15 @@
             @endif
         </main>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-11">
+                <div class="text-center text-muted">
+                    Developed By <a href="https://erfanebrahimi.ir" class="btn p-0 text-muted" target="_blank">Erfan Ebrahimi</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <script defer src="{{ asset('alpinejs.js') }}"></script>
     @livewireScripts
 </body>
