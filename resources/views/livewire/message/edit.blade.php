@@ -73,7 +73,9 @@
                     <select id="position" class="form-control @error('messageObject.position') is-invalid @enderror" wire:model.lazy="messageObject.position"  >
                         <option >Select One Item</option>
                         <option value="sell" @selected($messageObject['position'] == "sell" ) >{{ \HackerESQ\Settings\Facades\Settings::get("sell_label") }}</option>
+                        <option value="sell_limit" @selected($messageObject['position'] == "sell_limit" ) >{{ \HackerESQ\Settings\Facades\Settings::get("sell_limit_label") }}</option>
                         <option value="buy" @selected($messageObject['position'] == "buy" ) >{{ \HackerESQ\Settings\Facades\Settings::get("buy_label") }}</option>
+                        <option value="buy_limit" @selected($messageObject['position'] == "buy_limit" ) >{{ \HackerESQ\Settings\Facades\Settings::get("buy_limit_label") }}</option>
                     </select>
                     @error('messageObject.position')
                     <span class="invalid-feedback" role="alert">

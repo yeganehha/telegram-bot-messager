@@ -16,6 +16,10 @@ class SettingForm extends Component
     public $sell_label;
     public $buy_icon;
     public $sell_icon;
+    public $buy_limit_label;
+    public $sell_limit_label;
+    public $buy_limit_icon;
+    public $sell_limit_icon;
 
     public $rules = [
         'token' => ['required' , 'string'],
@@ -25,6 +29,10 @@ class SettingForm extends Component
         'sell_label' => ['nullable' , 'string'],
         'buy_icon' => ['nullable' , 'string'],
         'sell_icon' => ['nullable' , 'string'],
+        'buy_limit_label' => ['nullable' , 'string'],
+        'sell_limit_label' => ['nullable' , 'string'],
+        'buy_limit_icon' => ['nullable' , 'string'],
+        'sell_limit_icon' => ['nullable' , 'string'],
     ];
 
     public function updated($peroperty , $value )
@@ -46,6 +54,10 @@ class SettingForm extends Component
             'sell_label' => $this->sell_label ,
             'buy_icon' => $this->buy_icon ,
             'sell_icon' => $this->sell_icon ,
+            'buy_limit_label' => $this->buy_limit_label ,
+            'sell_limit_label' => $this->sell_limit_label ,
+            'buy_limit_icon' => $this->buy_limit_icon ,
+            'sell_limit_icon' => $this->sell_limit_icon ,
             ]);
         $this->flash_message = "Saved successfully.";
     }
@@ -65,6 +77,10 @@ class SettingForm extends Component
         $this->sell_label = Settings::get('sell_label' , 'Sell');
         $this->buy_icon = Settings::get('buy_icon' , '🟢');
         $this->sell_icon = Settings::get('sell_icon' , '🔴');
+        $this->buy_limit_label = Settings::get('buy_limit_label' , 'Buy Limit');
+        $this->sell_limit_label = Settings::get('sell_limit_label' , 'Sell Limit');
+        $this->buy_limit_icon = Settings::get('buy_limit_icon' , '🟢');
+        $this->sell_limit_icon = Settings::get('sell_limit_icon' , '🔴');
     }
     public function render()
     {

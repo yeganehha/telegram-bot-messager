@@ -46,18 +46,6 @@
             </div>
         </div>
         <div class="col-md-6 row mb-3">
-            <label for="sell_label" class="col-md-4 col-form-label">Sell Position label:</label>
-
-            <div class="col-md-6">
-                <input id="sell_label" type="text" class="form-control @error('sell_label') is-invalid @enderror" wire:model.lazy="sell_label"  value="{{ $sell_label }}" autocomplete="off" autofocus>
-                @error('sell_label')
-                <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-        </div>
-        <div class="col-md-6 row mb-3">
             <label for="buy_icon" class="col-md-4 col-form-label">Buy Position Icon:</label>
 
             <div class="col-md-6">
@@ -72,6 +60,44 @@
 
         </div>
         <div class="col-md-6 row mb-3">
+            <label for="buy_limit_label" class="col-md-4 col-form-label">Buy Limit Position label:</label>
+
+            <div class="col-md-6">
+                <input id="buy_limit_label" type="text" class="form-control @error('buy_limit_label') is-invalid @enderror" wire:model.lazy="buy_limit_label"  value="{{ $buy_limit_label }}" autocomplete="off" autofocus>
+                @error('buy_limit_label')
+                <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        <div class="col-md-6 row mb-3">
+            <label for="buy_limit_icon" class="col-md-4 col-form-label">Buy Limit Position Icon:</label>
+
+            <div class="col-md-6">
+                <input id="buy_limit_icon" type="text" class="form-control @error('buy_limit_icon') is-invalid @enderror" wire:model.lazy="buy_limit_icon"  value="{{ $buy_limit_icon }}" autocomplete="off" autofocus>
+                @error('buy_limit_icon')
+                <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="text-secondary small">Use `Windows button + dot` for open emoji on windows</div>
+
+        </div>
+        <div class="col-md-6 row mb-3">
+            <label for="sell_label" class="col-md-4 col-form-label">Sell Position label:</label>
+
+            <div class="col-md-6">
+                <input id="sell_label" type="text" class="form-control @error('sell_label') is-invalid @enderror" wire:model.lazy="sell_label"  value="{{ $sell_label }}" autocomplete="off" autofocus>
+                @error('sell_label')
+                <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        <div class="col-md-6 row mb-3">
             <label for="sell_icon" class="col-md-4 col-form-label">Sell Position Icon:</label>
 
             <div class="col-md-6">
@@ -84,7 +110,31 @@
             </div>
             <div class="text-secondary small">Use `Windows button + dot` for open emoji on windows</div>
         </div>
+        <div class="col-md-6 row mb-3">
+            <label for="sell_limit_label" class="col-md-4 col-form-label">Sell Limit Position label:</label>
 
+            <div class="col-md-6">
+                <input id="sell_limit_label" type="text" class="form-control @error('sell_limit_label') is-invalid @enderror" wire:model.lazy="sell_limit_label"  value="{{ $sell_limit_label }}" autocomplete="off" autofocus>
+                @error('sell_limit_label')
+                <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        <div class="col-md-6 row mb-3">
+            <label for="sell_limit_icon" class="col-md-4 col-form-label">Sell Limit Position Icon:</label>
+
+            <div class="col-md-6">
+                <input id="sell_limit_icon" type="text" class="form-control @error('sell_limit_icon') is-invalid @enderror" wire:model.lazy="sell_limit_icon"  value="{{ $sell_limit_icon }}" autocomplete="off" autofocus>
+                @error('sell_limit_icon')
+                <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="text-secondary small">Use `Windows button + dot` for open emoji on windows</div>
+        </div>
         <div class="col-md-12 row mb-3">
             <label for="message_text" class="col-md-2 col-form-label">Message template:</label>
 

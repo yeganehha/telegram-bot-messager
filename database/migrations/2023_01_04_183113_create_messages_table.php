@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('symbol_id')->nullable();
             $table->foreign('symbol_id')->on('symbols')->references('id')->onDelete('set null')->onUpdate('cascade');
-            $table->enum('position' , ['sell' , 'buy'])->default('sell');
+            $table->enum('position' , ['sell' , 'buy','sell_limit' , 'buy_limit'])->default('sell');
             $table->string('entry' )->nullable();
             $table->string('target' )->nullable();
             $table->string('tp1' )->nullable();

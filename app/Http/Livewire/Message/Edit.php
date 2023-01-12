@@ -22,7 +22,7 @@ class Edit extends Component
     public $flash_message;
 
     public $rules = [
-        'messageObject.position' => ['required' , 'in:buy,sell'],
+        'messageObject.position' => ['required' , 'in:buy,sell,buy_limit,sell_limit'],
         'messageObject.entry' => ['nullable' , 'string', 'max:255'],
         'messageObject.target' => ['nullable' , 'string', 'max:255'],
         'messageObject.tp1' => ['nullable' , 'string', 'max:255'],
