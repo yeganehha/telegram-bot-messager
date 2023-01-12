@@ -94,6 +94,9 @@
                     Use `Windows button + dot` for open emoji on windows
                 </div>
                 <div class="text-secondary small">
+                    You can use if condition like : &#64;if($Variable) .... &#64;endif
+                </div>
+                <div class="text-secondary small">
                     Use This Variable:
                 </div>
                 <span style="cursor: pointer;" class="text-info" wire:click.prevent="add('CURRENCY_ICON')">[[CURRENCY_ICON]]</span>
